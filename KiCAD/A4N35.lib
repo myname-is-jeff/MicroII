@@ -1,0 +1,31 @@
+*$
+********************** Optocoupler Electrical Circuit Model *********************
+** Product Name: 4N35
+** 6-Pin General Purpose Phototransistor Optocouplers
+**-------------------------------------------------------------------------------
+.SUBCKT A4N35 A K C B E
+VM A 6
+D1 6 K Demit
+H1 7 0 VM 0.5154
+R1 7 8 1K
+C1 8 0 9.60e-10
+G1 C B 8 0 1
+Q1 C B E QOPTO
+.MODEL Demit D (IS=1.03e-12  N=2.0     RS=2.36446  BV=6.6  IBV=1.0e-5
++ CJO=3.0e-11   VJ=0.532794  M=0.27985 EG=1.46     TT=5.00e-7)
+.model QOPTO npn (
++ IS=6.08269e-12     BF=300.0          NF=1.0
++ BR=0.126           NR=1              ISE=3.52082e-9  
++ NE=1.5             ISC=1.82481e-9    NC=2.0
++ VAF=100            VAR=100           IKF=0.02092
++ IKR=4.31826e-3     RB=135.6          RBM=0.00106
++ IRB=1.05E-5        RE=0.032          RC=3.345
++ CJE=8.014673e-12   VJE=0.46          MJE=0.33
++ CJC=3.214673e-11   VJC=0.48          MJC=0.408
++ EG=1.18            XTI=3             XTB=-0.175
++ TF=6.92e-10        TR=1.4e-5 )
+.ENDS
+**-------------------------------------------------------------------------------
+** Creation: Jan.-10-2024  Rev: 1.0
+** onsemi
+
